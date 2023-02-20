@@ -23,8 +23,8 @@ phases:
       - ls -la
       - cd aws-nodejs-sample-codebuild
       - pwd
-      - chmod +x newtag.sh
-      - sh newtag.sh
+      - chmod +x newtag1.sh
+      - sh newtag1.sh
       
   post_build:
     commands:
@@ -33,9 +33,7 @@ phases:
       - echo Build completed on `date`
       - echo $last_tag_name
       - echo $date
-      - git tag
-      - chmod +x tag.sh
-      - ./tag.sh
+
 # Include only the files required for your application to run.
 # Do not use recursively include artifacts from node_modules directory as it will include unnecessary packages 
 # used only for building and testing.
