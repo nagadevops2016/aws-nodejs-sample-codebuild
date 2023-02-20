@@ -20,6 +20,11 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
+      - git clone https://github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
+      - cd aws-nodejs-sample-codebuild.git
+      - pwd
+      - chmod +x newtag.sh
+      - sh newtag.sh
       
   post_build:
     commands:
