@@ -19,5 +19,5 @@ phases:
       - echo "hellow" >> hello.txt
       - git add .
       - git commit -m "hello" .
-      - git push 
+      - git push https://${GIT_USERNAME}@github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
     #  - sh newtag1.sh
