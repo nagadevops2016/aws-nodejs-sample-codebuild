@@ -15,4 +15,5 @@ phases:
       - echo "https://${GIT_USERNAME}@github.com" > ~/.git-credentials
       - git clone https://github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
       - cd aws-nodejs-sample-codebuild
+      - git pull origin main
       - sh newtag1.sh
