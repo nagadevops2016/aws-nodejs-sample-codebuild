@@ -1,10 +1,10 @@
 #!/bin/bash
-last_tag_name=$(git tag --sort=-version: refname | head -1 ) 
+last_tag_name=$(git tag --sort=-version:refname | head -1 ) 
 date_fields=$(echo $last_tag_name | rev | cut -d '.' - f 2 )
 
-today_date=$(date '+%Y%m%')
+today_date=$(date '+%Y%m%d')
 
-git_sec_number=o
+git_sec_number=0
 
 if [ $date_fields == $today_date ]
 
@@ -16,5 +16,5 @@ git_sec_number=$( expr $latest_sec_number + 1 )
 else git_sec_number=1 
 fi
 
-git tag -a ee-map. Environment.$today_date.$git_sec_number 
-git push --tags origin ee-map. Environment.$today_date.$git_sec_number
+git tag -a ee-map.Environment.$today_date.$git_sec_number 
+git push --tags origin ee-map.Environment.$today_date.$git_sec_number
