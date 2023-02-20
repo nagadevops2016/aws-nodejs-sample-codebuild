@@ -10,4 +10,4 @@ NEW_TAG=$(echo $CURRENT_TAG | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{if(leng
 git tag -a "$NEW_TAG" -m "Auto-tagging new version $NEW_TAG"
 
 # Push the git tag
-git push origin --tags
+git push origin --tags https://nagadevops2016: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@github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
