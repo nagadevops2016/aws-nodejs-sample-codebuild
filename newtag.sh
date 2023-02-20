@@ -4,7 +4,7 @@ date_fields=$(echo $last_tag_name | rev | cut -d '.' - f 2 )
 
 today_date=$(date '+%Y%m%')
 
-git sec number=o
+git_sec_number=o
 
 if [ $date_fields == $today_date ]
 
