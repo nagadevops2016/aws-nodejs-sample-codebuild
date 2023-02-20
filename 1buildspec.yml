@@ -16,4 +16,8 @@ phases:
       - git clone https://github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
       - cd aws-nodejs-sample-codebuild
       - git pull origin master
-      - sh newtag1.sh
+      - echo "hellow" >> hello.txt
+      - git add .
+      - git commit -m "hello" .
+      - git push 
+    #  - sh newtag1.sh
