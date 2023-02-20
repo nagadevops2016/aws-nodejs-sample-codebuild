@@ -11,14 +11,16 @@ phases:
       - git config --global user.email "nagadevops2016@gmail.com"
       - git config --global user.name "nagadevops2016"
       - echo ${GIT_USERNAME}
-      - git config --global credential.helper 'store --file=~/.git-credentials'
-      - echo "https://${GIT_USERNAME}@github.com" > ~/.git-credentials
-      - cat ~/.git-credentials
-      - git clone https://github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
+  #    - git config --global credential.helper 'store --file=~/.git-credentials'
+ #     - echo "https://${GIT_USERNAME}@github.com" > ~/.git-credentials
+  #    - cat ~/.git-credentials
+      - aws secretsmanager get-secret-value --secret-id "git-credentials" | jq -r .SecretString | while read line; do KEY=`echo $line | cut -f1 -d '='` ; VALUE=`echo $line | cut -f2 -d '='` ; export $KEY=$VALUE; done
+
+      - git clone https://$username:$password@github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
       - cd aws-nodejs-sample-codebuild
       - git pull origin master
       - echo "hellow" >> hello.txt
       - git add .
       - git commit -m "hello" .
-      - git push https://${GIT_USERNAME}@github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
+      - git push https://$username:$password@github.com/nagadevops2016/aws-nodejs-sample-codebuild.git
     #  - sh newtag1.sh
